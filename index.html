@@ -102,7 +102,7 @@ input[type="button"]:hover {
       refresh();
 
       var button = document.querySelector('input');
-      button.addEventListener('touchstart', refresh, false);
+      button.addEventListener('touchstart', refresh, { passive: true });
       button.addEventListener('click', refresh, false);
     </script>
   </body>
