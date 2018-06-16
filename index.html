@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Yes Or No?</title>
+    <meta name="description" content="Yes or no, for your information...">
+    <meta name="keywords" content="Yes,Ya,Yo,Yiss,Yea,Yeah,Yup,Yay,No,Nope,Nay,Nah,Maybe,I don't care,whatever">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+* {
+  margin: 0;
+  padding: 0;
+  font-family: serif;
+  color: white;
+}
+body, html {
+  height: 100%;
+  display: grid;
+  background-color: LightPink;
+}
+html {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+@keyframes flash-animation {
+  from { background-color: white; }
+    to { background-color: tomato; }
+}
+h1 {
+  position: absolute;
+  top: 2%;
+  margin: 0 auto;
+  background-color: tomato;
+  text-align: center;
+  padding: 3% 6%;
+  box-shadow: LemonChiffon 5px 5px 0px;
+}
+p {
+  margin: auto;
+  background-color: tomato;
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 500%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  box-shadow: LemonChiffon 10px 10px 0px;
+}
+
+.flash {
+  animation-name: flash-animation;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+}
+
+input[type="button"] {
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+  background-color: Tomato;
+  border-width: 0;
+  font-size: 200%;
+  padding: 3% 6%;
+  box-shadow: LemonChiffon 5px 5px 0px;
+}
+input[type="button"]:hover {
+  box-shadow: white 5px 5px 0px;
+  cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+    <h1>Yes Or No?</h1>
+    <p></p>
+    <input type="button" value="Really?" />
+    <script type="text/javascript">
+      const yesOrNo = function() {
+        var randomNumber = Math.floor(Math.random() * 1000)
+
+        if (randomNumber < 500) {
+          return "Yes";
+        } else if (randomNumber == 500) {
+          return "Maybe"
+        } else {
+          return "No"
+        }
+      }
+
+      const refresh = function() {
+        var element = document.querySelector('p');
+        element.innerHTML = yesOrNo();
+        element.classList.remove('flash');
+        void element.offsetWidth;
+        element.classList.add('flash');
+      }
+
+      refresh();
+
+      var button = document.querySelector('input');
+      button.addEventListener('touchstart', refresh, false);
+      button.addEventListener('click', refresh, false);
+    </script>
+  </body>
+</html>
