@@ -12,61 +12,47 @@
   margin: 0;
   padding: 0;
   font-family: serif;
-  color: #2d3115;
+  color: black;
 }
+
 body, html {
-  height: 100%;
-  display: grid;
-  background-color: LightPink;
+  background-color: White;
 }
-html {
-  margin-left: 5%;
-  margin-right: 5%;
+body {
+  text-align: center;
 }
 @keyframes flash-animation {
-  from { background-color: white; }
-    to { background-color: tomato; }
+  from { color: white; }
+    to { color: black; }
 }
 h1 {
-  position: absolute;
-  top: 2%;
-  margin: 0 auto;
-  background-color: tomato;
-  text-align: center;
-  padding: 3% 6%;
-  box-shadow: LemonChiffon 5px 5px 0px;
+  padding: 15% 0px;
 }
 p {
-  margin: auto;
-  background-color: tomato;
-  width: 100%;
+  width: 50%;
+  display: inline-block;
   text-align: center;
   font-weight: bold;
   font-size: 500%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-  box-shadow: LemonChiffon 10px 10px 0px;
+  padding: 5% 5% 0;
+}
+
+p:hover {
+  cursor: pointer;
+}
+
+.borders {
+  border-radius: 0px;
+  border-width: 0 0 10px;
+  border-style: solid;
+  border-color: HotPink;
+  box-shadow: #69ffb4 0px 10px 0px 0px;
 }
 
 .flash {
   animation-name: flash-animation;
-  animation-duration: 0.5s;
+  animation-duration: 0.4s;
   animation-timing-function: ease-in;
-}
-
-input[type="button"] {
-  position: absolute;
-  bottom: 2%;
-  right: 5%;
-  background-color: Tomato;
-  border-width: 0;
-  font-size: 200%;
-  padding: 3% 6%;
-  box-shadow: LemonChiffon 5px 5px 0px;
-}
-input[type="button"]:hover {
-  box-shadow: white 5px 5px 0px;
-  cursor: pointer;
 }
     </style>
   </head>
@@ -75,8 +61,7 @@ input[type="button"]:hover {
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
     <h1>Yes Or No?</h1>
-    <p></p>
-    <input type="button" value="Really?" />
+    <p class="borders"></p>
     <script type="text/javascript">
       const yesOrNo = function() {
         var randomNumber = Math.floor(Math.random() * 1000)
@@ -99,10 +84,9 @@ input[type="button"]:hover {
       }
 
       refresh();
-
-      var button = document.querySelector('input');
-      button.addEventListener('touchstart', refresh, { passive: true });
-      button.addEventListener('click', refresh, false);
+      var clickEvent = ((document.ontouchstart !== null) ? 'click' : 'touchstart');
+      var button = document.querySelector('p');
+      button.addEventListener(clickEvent, refresh, { passive: false });
     </script>
   </body>
 </html>
