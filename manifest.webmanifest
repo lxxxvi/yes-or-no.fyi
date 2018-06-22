@@ -4,6 +4,7 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
+  "theme_color": "#fff",
   "description": "If you need answers, such as yes or no.",
   "dir": "ltr",
   "lang": "en-US",
