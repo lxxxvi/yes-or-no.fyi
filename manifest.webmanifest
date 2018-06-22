@@ -1,0 +1,11 @@
+{
+  "name": "Yes Or No",
+  "short_name": "Yes Or No",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "If you need answers, such as yes or no.",
+  "dir": "ltr",
+  "lang": "en-US",
+  "orientation": "portrait-primary"
+}
