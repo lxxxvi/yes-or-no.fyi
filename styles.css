@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: serif;
+  color: black;
+}
+
+body, html {
+  background-color: White;
+}
+
+body {
+  text-align: center;
+}
+
+@keyframes flash-animation {
+  from { color: white; }
+    to { color: black; }
+}
+
+h1 {
+  padding: 2% 0px 10% 0px;
+}
+
+p {
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 500%;
+  padding: 5% 5% 0;
+}
+
+p:hover {
+  cursor: pointer;
+}
+
+.borders {
+  border-radius: 0px;
+  border-width: 0 0 10px;
+  border-style: solid;
+  border-color: HotPink;
+  box-shadow: #69ffb4 0px 10px 0px 0px;
+}
+
+.flash {
+  animation-name: flash-animation;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in;
+}
