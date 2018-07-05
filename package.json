@@ -11,5 +11,8 @@
   },
   "dependencies": {
     "hyperapp": "^1.2.6"
+  },
+  "devDependencies": {
+    "parcel": "^1.9.4"
   }
 }
