@@ -4,90 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="theme-color" content="#fff">
-    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="manifest" href="manifest.webmanifest">
     <title>Yes Or No?</title>
     <meta name="description" content="Yes or no, for your information...">
     <meta name="keywords" content="Yes,Ya,Yo,Yiss,Yea,Yeah,Yup,Yay,No,Nope,Nay,Nah,Maybe,I don't care,whatever">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-* {
-  margin: 0;
-  padding: 0;
-  font-family: serif;
-  color: black;
-}
-
-body, html {
-  background-color: White;
-}
-body {
-  text-align: center;
-}
-@keyframes flash-animation {
-  from { color: white; }
-    to { color: black; }
-}
-h1 {
-  padding: 2% 0px 10% 0px;
-}
-p {
-  display: inline-block;
-  text-align: center;
-  font-weight: bold;
-  font-size: 500%;
-  padding: 5% 5% 0;
-}
-
-p:hover {
-  cursor: pointer;
-}
-
-.borders {
-  border-radius: 0px;
-  border-width: 0 0 10px;
-  border-style: solid;
-  border-color: HotPink;
-  box-shadow: #69ffb4 0px 10px 0px 0px;
-}
-
-.flash {
-  animation-name: flash-animation;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in;
-}
     </style>
   </head>
   <body>
-    <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-    <h1>Yes Or No?</h1>
-    <p class="borders"></p>
-    <script type="text/javascript">
-      const yesOrNo = function() {
-        var randomNumber = Math.floor(Math.random() * 1000)
-
-        if (randomNumber < 500) {
-          return "Yes";
-        } else if (randomNumber == 500) {
-          return "Maybe"
-        } else {
-          return "No"
-        }
-      }
-
-      const refresh = function() {
-        var element = document.querySelector('p');
-        element.innerHTML = yesOrNo();
-        element.classList.remove('flash');
-        void element.offsetWidth;
-        element.classList.add('flash');
-      }
-
-      refresh();
-      var clickEvent = ((document.ontouchstart !== null) ? 'click' : 'touchstart');
-      var button = document.querySelector('p');
-      button.addEventListener(clickEvent, refresh, { passive: false });
-    </script>
+    <script src="src/index.js"></script>
   </body>
 </html>
