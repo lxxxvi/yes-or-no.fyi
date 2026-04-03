@@ -1,9 +1,7 @@
-var cacheName = 'yes-or-no-v1';
+var cacheName = 'yes-or-no-v2';
 var filesToCache = [
   '/',
-  '/index.html',
-  '/index.js',
-  '/styles.css'
+  '/index.html'
 ];
 
 self.addEventListener('install', function(e) {
