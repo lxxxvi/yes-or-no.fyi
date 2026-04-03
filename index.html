@@ -10,14 +10,122 @@
     <meta name="keywords" content="Yes,Ya,Yo,Yiss,Yea,Yeah,Yup,Yay,No,Nope,Nay,Nah,Maybe,I don't care,whatever">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="styles.css" rel="stylesheet">
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript">
+      const randomNumber = function() {
+        return Math.floor(Math.random() * 1000)
+      }
+
+      const yesOrNo = function(value) {
+        if (value < 500) {
+          return "Yes";
+        } else if (value == 500) {
+          return "Maybe"
+        } else {
+          return "No"
+        }
+      }
+
+      function getRGB(input) {
+        const r = (input * 73856093) % 256;
+        const g = (input * 19349663) % 256;
+        const b = (input * 83492791) % 256;
+
+        return [r, g, b];
+      }
+
+      const refresh = function() {
+        const number = randomNumber();
+
+        const [r, g, b] = getRGB(number);
+        const backgroundColorProperty = `rgb(${r}, ${g}, ${b})`
+        document.documentElement.style.setProperty('--body-background-color', backgroundColorProperty);
+
+        const output = document.querySelector('output');
+        output.innerHTML = yesOrNo(number);
+        output.classList.remove('flash');
+        void output.offsetWidth;
+        output.classList.add('flash');
+      }
+
+      document.addEventListener("DOMContentLoaded",function(){
+        refresh();
+      });
+    </script>
+    <style>
+      :root {
+        --body-background-color: rgb(255, 255, 255);
+      }
+
+      * {
+        font-family: "Courier New", monospace;
+        font-size: 36px;
+        margin: 0;
+        padding: 0;
+        color: black;
+      }
+
+      body, html {
+        background-color: hsl(from var(--body-background-color) h s l / 0.5);
+      }
+
+      body {
+        height: 100dvh;
+        max-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+      }
+
+      @keyframes flash-animation {
+        from { color: white; }
+          to { color: black; }
+      }
+
+      h1 {
+        padding: 2% 0px 10% 0px;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        text-align: center;
+        justify-items: center;
+        align-items: center;
+      }
+
+      output {
+        font-size: 6rem;
+        font-weight: bold;
+      }
+
+      button {
+        font-size: 2rem;
+        padding: 1rem 0;
+        background-color: hsl(from #000 h s l / 0.3);
+        border: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      button:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+
+      .flash {
+        animation-name: flash-animation;
+        animation-duration: 0.4s;
+        animation-timing-function: ease-in;
+      }
+    </style>
   </head>
-  <body>
-    <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
+  <body style="background-color: hsl;">
     <h1>Yes Or No?</h1>
-    <p class="borders"></p>
+    <main>
+      <output></output>
+    </main>
+    <button onclick="refresh()">Again</button>
     <script type="text/javascript">
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
